@@ -1,6 +1,6 @@
 local telescope_config = require "configs.telescope"
 
-telescope_config.setup_opts()
+telescope_config.get_opts()
 
 return {
   {

@@ -1,4 +1,6 @@
+local telescope_opts = require "nvchad.configs.telescope"
 local telescope_defaults = { path_display = { "filename_first", "truncate" } }
+vim.tbl_extend("force", telescope_opts.defaults, telescope_defaults)
 
 local select_one_or_multi = function(prompt_bufnr)
   local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
@@ -15,23 +17,11 @@ local select_one_or_multi = function(prompt_bufnr)
   end
 end
 
-local telescope_opts
-
-local setup_telescope_opts = function()
-  telescope_opts = require "nvchad.configs.telescope"
-  vim.tbl_extend("force", telescope_opts.defaults, telescope_defaults)
-end
-
-local get_telescope_opts = function()
-  if telescope_opts == nil then
-    setup_telescope_opts()
-  end
+local get_opts = function()
   return telescope_opts
 end
 
--- Export the function
 return {
-  setup_opts = setup_telescope_opts,
-  get_opts = get_telescope_opts,
+  get_opts = get_opts,
   select_one_or_multi = select_one_or_multi,
 }

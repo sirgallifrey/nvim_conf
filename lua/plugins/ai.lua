@@ -1,7 +1,13 @@
 local telescope_config = require "configs.telescope"
+local telescope_opts = telescope_config.get_opts()
+
+local env = require "env"
+
+if not env.shouldLoadAIModules() then
+  return {}
+end
 
 return {
-
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -46,7 +52,7 @@ return {
       provider = "copilot",
       selector = {
         provider = "telescope",
-        provider_opts = telescope_config.get_opts(),
+        provider_opts = telescope_opts,
       },
       mappings = {
         submit = {

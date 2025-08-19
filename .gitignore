@@ -1,3 +1,5 @@
 spell/
 .DS_Store
 
+# env.local.lua might contain environment specific logic and/or other things we don't want shared on github.
+env-local.lua
