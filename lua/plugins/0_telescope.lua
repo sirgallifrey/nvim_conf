@@ -1,4 +1,5 @@
 local telescope_config = require "configs.telescope"
+local actions = require "telescope.actions"
 
 telescope_config.get_opts()
 
@@ -16,12 +17,14 @@ return {
             ["<C-h>"] = "which_key",
             ["<C-x>"] = "delete_buffer",
             ["<CR>"] = telescope_config.select_one_or_multi,
+            ["<C-f>"] = actions.send_to_qflist,
           },
           n = {
 
             ["<C-h>"] = "which_key",
             ["<C-x>"] = "delete_buffer",
             ["<CR>"] = telescope_config.select_one_or_multi,
+            ["<C-f>"] = actions.send_to_qflist,
           },
         },
       },
